@@ -7,406 +7,461 @@
 
 <style>
 :root {
-  --navy: #061a35;
-  --navy-dark: #011635;
-  --gold: #efbd42;
-  --gold-dark: #c69a31;
-  --cream: #fffdf9;
-  --text: #092650;
-  --border: #e6e6e6;
+  --navy:#061a35;
+  --navy-dark:#011635;
+  --gold:#efbd42;
+  --cream:#fffdf9;
+  --text:#092650;
+  --border:#e6e6e6;
 }
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: var(--cream);
-  color: var(--text);
-}
-.top {
-  background: var(--navy-dark);
-  color: white;
-  padding: 12px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 13px;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-header {
-  padding: 16px 5%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap;
-  background: white;
+  margin:0;
+  padding-bottom:85px;
+  font-family:Arial,sans-serif;
+  background:var(--cream);
+  color:var(--text);
 }
 
+/* Tagline */
+.top {
+  background:var(--navy);
+  color:white;
+  padding:12px 5%;
+  text-align:center;
+  font-size:13px;
+  font-weight:bold;
+}
+
+/* Search */
+header {
+  width:100%;
+  padding:15px 5%;
+  display:flex;
+  justify-content:center;
+  background:white;
+}
+.search-box {
+  display:flex;
+  width:100%;
+  max-width:620px;
+}
 .search {
-  padding: 13px 18px;
-  border: 1px solid #ddd;
-  border-radius: 30px;
-  flex: 1;
-  max-width: 450px;
-  min-width: 180px;
-  font-size: 14px;
+  flex:1;
+  min-width:0;
+  padding:13px 16px;
+  border:1px solid #cbd2dc;
+  border-right:0;
+  border-radius:9px 0 0 9px;
+  outline:none;
+  font-size:15px;
 }
-.cart-summary {
-  border: 0;
-  background: var(--navy);
-  color: white;
-  border-radius: 25px;
-  padding: 11px 16px;
-  font-size: 16px;
+.search-btn {
+  padding:0 20px;
+  border:1px solid var(--navy);
+  border-radius:0 9px 9px 0;
+  background:var(--navy);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
 }
+.search-btn:hover { background:#123b70; }
+
+/* Navigation */
 nav {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  padding: 15px;
-  flex-wrap: wrap;
-  border-top: 1px solid #eee;
-  background: white;
+  display:flex;
+  justify-content:center;
+  gap:25px;
+  padding:14px;
+  flex-wrap:wrap;
+  background:white;
+  border-top:1px solid #eee;
 }
 nav a {
-  color: #041c3e;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
+  color:var(--navy);
+  text-decoration:none;
+  font-size:14px;
+  font-weight:bold;
 }
-nav a:hover { color: var(--gold-dark); }
+nav a:hover { color:#c69a31; }
 
+/* Cover */
 .zeronia-hero {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: var(--navy);
-  line-height: 0;
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:var(--navy);
+  line-height:0;
 }
 .zeronia-cover-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 620px;
-  object-fit: cover;
-  object-position: center;
+  display:block;
+  width:100%;
+  height:auto;
+  max-height:620px;
+  object-fit:cover;
 }
 .zeronia-shop-button {
-  position: absolute;
-  left: 50%;
-  bottom: 8%;
-  transform: translateX(-50%);
-  display: inline-block;
-  background: var(--gold);
-  color: #071b35;
-  padding: 13px 28px;
-  border: 2px solid var(--gold);
-  border-radius: 30px;
-  font-size: 15px;
-  font-weight: bold;
-  text-decoration: none;
-  line-height: normal;
-  box-shadow: 0 3px 12px #0003;
-  transition: 0.2s ease;
+  position:absolute;
+  left:50%;
+  bottom:8%;
+  transform:translateX(-50%);
+  background:var(--gold);
+  color:var(--navy);
+  padding:13px 28px;
+  border:2px solid var(--gold);
+  border-radius:30px;
+  font-size:15px;
+  font-weight:bold;
+  text-decoration:none;
+  line-height:normal;
 }
-.zeronia-shop-button:hover {
-  background: white;
-  border-color: white;
-  transform: translateX(-50%) translateY(-2px);
-}
-.section { padding: 38px 5%; }
+
+/* Sections */
+.section { padding:38px 5%; }
 .heading {
-  text-align: center;
-  font-size: 25px;
-  letter-spacing: 2px;
-  margin: 0 0 28px;
+  text-align:center;
+  font-size:25px;
+  letter-spacing:2px;
+  margin:0 0 25px;
 }
+
+/* Categories */
 .categories {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px; 
+  display:grid;
+  grid-template-columns:1fr;
+  gap:7px;
+  max-width:850px;
+  margin:0 auto;
 }
 .category {
-  border: 1px solid #142B50;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 3px 12px #0001;
-  background: white;
-  text-decoration: none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:100%;
+  min-height:53px;
+  padding:14px 18px;
+  border:1px solid var(--navy);
+  border-radius:8px;
+  background:white;
+  color:var(--navy);
+  text-decoration:none;
+  font-size:15px;
+  font-weight:bold;
+  transition:.2s;
 }
-.category img {
-  width: 100%;
-  height: 190px;
-  object-fit: cover;
-  display: block;
+.category span:last-child {
+  font-size:23px;
 }
-.category div {
-  background: #082650;
-  color: white;
-  padding: 17px;
-  text-align: center;
-  font-size: 19px;
-  font-weight: bold;
+.category:hover,
+.category.active {
+  background:var(--navy);
+  color:white;
 }
+.category:hover span,
+.category.active span {
+  color:var(--gold);
+}
+
+/* Products */
 .products {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
 }
 .product {
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 10px;
-  background: white;
-  box-shadow: 0 3px 8px #0000000b;
-  min-width: 0;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+  background:white;
+  box-shadow:0 3px 8px #0000000b;
+  min-width:0;
 }
 .product img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 6px;
+  display:block;
+  width:100%;
+  height:180px;
+  object-fit:cover;
+  border-radius:6px;
+  background:#f4f4f4;
 }
-.product h3 { font-size: 15px; }
-.description { font-size: 13px; color: #555; }
-.price { font-weight: bold; }
+.product h3 { font-size:15px; }
+.description { font-size:13px;color:#555; }
+.price { font-weight:bold; }
+.product-category {
+  display:inline-block;
+  margin:3px 0 7px;
+  padding:4px 8px;
+  border-radius:20px;
+  background:#edf1f7;
+  color:var(--navy);
+  font-size:11px;
+  font-weight:bold;
+}
 .cart {
-  width: 100%;
-  padding: 12px;
-  background: #082650;
-  color: white;
-  border: 0;
-  border-radius: 6px;
-  cursor: pointer;
+  width:100%;
+  padding:12px;
+  background:var(--navy);
+  color:white;
+  border:0;
+  border-radius:6px;
+  cursor:pointer;
 }
-.cart:hover { background: #123b70; }
-.cart:disabled { background: #999; cursor: not-allowed; }
+.cart:hover { background:#123b70; }
+.cart:disabled { background:#999;cursor:not-allowed; }
+.no-products {
+  grid-column:1/-1;
+  padding:25px;
+  text-align:center;
+  color:#666;
+  background:white;
+  border:1px solid var(--border);
+  border-radius:10px;
+}
+
+/* Cart */
 .cart-box {
-  max-width: 600px;
-  margin: 24px auto;
-  padding: 18px;
-  border: 1px solid #e3e3e3;
-  border-radius: 12px;
-  background: white;
+  max-width:600px;
+  margin:24px auto;
+  padding:18px;
+  border:1px solid #e3e3e3;
+  border-radius:12px;
+  background:white;
+  scroll-margin-top:20px;
 }
 .cart-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  padding:8px 0;
+  border-bottom:1px solid #eee;
 }
 .remove-item {
-  border: 0;
-  border-radius: 5px;
-  padding: 5px 9px;
-  background: #f3e6c6;
-  color: #092650;
-  cursor: pointer;
+  border:0;
+  border-radius:5px;
+  padding:6px 9px;
+  background:#f8dddd;
+  color:#8b1717;
+  cursor:pointer;
 }
-#total { text-align: right; font-weight: bold; }
+#total { text-align:right;font-weight:bold; }
+
+/* Order form */
 .order-form {
-  max-width: 600px;
-  margin: 24px auto 0;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  background: white;
+  max-width:600px;
+  margin:24px auto 0;
+  padding:20px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  background:white;
 }
 .order-form label {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 12px;
+  display:block;
+  font-size:14px;
+  font-weight:bold;
+  margin-top:12px;
 }
 .order-form input,
 .order-form textarea {
-  display: block;
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font: inherit;
+  display:block;
+  width:100%;
+  padding:12px;
+  margin:8px 0 12px;
+  border:1px solid #ccc;
+  border-radius:6px;
+  font:inherit;
 }
+
+/* Services and footer */
 .services {
-  background: #f8f4eb;
-  display: flex;
-  justify-content: space-around;
-  gap: 18px;
-  padding: 25px 5%;
-  text-align: center;
-  flex-wrap: wrap;
+  background:#f8f4eb;
+  display:flex;
+  justify-content:space-around;
+  gap:18px;
+  padding:25px 5%;
+  text-align:center;
+  flex-wrap:wrap;
 }
 footer {
-  background: #061e42;
-  color: white;
-  padding: 35px 5%;
-  text-align: center;
+  background:#061e42;
+  color:white;
+  padding:35px 5%;
+  text-align:center;
 }
-footer strong { color: var(--gold); }
+footer strong { color:var(--gold); }
 
-@media (max-width: 900px) {
-  .products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .zeronia-cover-image { max-height: none; }
+/* Floating buttons */
+.floating-actions {
+  position:fixed;
+  right:16px;
+  bottom:16px;
+  z-index:9999;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:10px;
 }
-@media (max-width: 700px) {
-  .logo img { width: 150px; }
-  header { gap: 12px; }
-  .search { order: 3; max-width: none; flex-basis: 100%; }
-  nav { gap: 16px; }
-  .section { padding: 28px 4%; }
-  .categories { grid-template-columns: 1fr; }
-  .category img { height: 220px; }
-  .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-  .product img { height: 145px; }
-  .heading { font-size: 21px; }
-  .zeronia-shop-button { bottom: 5%; padding: 8px 14px; font-size: 11px; }
+.floating-btn {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:52px;
+  min-height:52px;
+  padding:0 15px;
+  border:0;
+  border-radius:28px;
+  color:white;
+  font-size:14px;
+  font-weight:bold;
+  text-decoration:none;
+  box-shadow:0 3px 12px #0004;
+  cursor:pointer;
 }
-@media (max-width: 380px) {
-  .products { grid-template-columns: 1fr; }
-  .top { justify-content: center; }
-}
-  header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: nowrap;
-  padding: 12px 4%;
+.whatsapp-float { background:#159b55; }
+.cart-float { background:var(--navy); }
+.floating-count {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:21px;
+  height:21px;
+  padding:0 5px;
+  border-radius:50%;
+  background:var(--gold);
+  color:var(--navy);
+  font-size:12px;
 }
 
-.search {
-  flex: 0 1 500px;
-  width: 100%;
-  max-width: 500px;
-  min-width: 0;
-  margin: 0;
+@media(max-width:900px) {
+  .products { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .zeronia-cover-image { max-height:none; }
 }
-
-.cart-summary {
-  flex-shrink: 0;
-  white-space: nowrap;
+@media(max-width:700px) {
+  header { padding:12px 4%; }
+  .search { font-size:14px;padding:12px; }
+  .search-btn { padding:0 15px;font-size:13px; }
+  nav { gap:14px;padding:13px 8px; }
+  nav a { font-size:13px; }
+  .section { padding:28px 4%; }
+  .category { min-height:49px;padding:12px 14px;font-size:14px; }
+  .products { grid-template-columns:repeat(2,minmax(0,1fr));gap:10px; }
+  .product { padding:8px; }
+  .product img { height:145px; }
+  .heading { font-size:21px; }
+  .zeronia-shop-button { bottom:5%;padding:8px 14px;font-size:11px; }
+  .floating-actions { right:11px;bottom:12px;gap:8px; }
+  .floating-btn { min-height:48px;min-width:48px;padding:0 13px;font-size:13px; }
 }
-
-@media (max-width: 700px) {
-  header {
-    flex-wrap: nowrap;
-    gap: 8px;
-    padding: 10px 3%;
-  }
-
-  .search {
-    flex: 1;
-    min-width: 0;
-    font-size: 13px;
-    padding: 11px 12px;
-  }
-
-  .cart-summary {
-    padding: 10px 13px;
-  }
+@media(max-width:380px) {
+  .products { grid-template-columns:1fr; }
+  .top { font-size:12px; }
+  .search-btn { padding:0 12px; }
 }
 </style>
 </head>
 
 <body>
+
 <div class="top">
-  <span>🎁 Special Gifts • Beautiful Moments</span>
+  🎁 Special Gifts • Beautiful Moments
 </div>
 
-
-<div class="search-box">
-  <input
-    class="search"
-    id="search"
-    type="search"
-    placeholder="Search products..."
-    aria-label="Search products"
-  >
-  <button type="button" class="search-btn" onclick="searchProducts()">
-    Search
-  </button>
-</div>
-
+<header>
+  <div class="search-box">
+    <input
+      class="search"
+      id="search"
+      type="search"
+      placeholder="Search products or categories..."
+      aria-label="Search products"
+    >
+    <button type="button" class="search-btn" id="search-button">
+      Search
+    </button>
+  </div>
 </header>
 
-<nav aria-label="Main navigation">
+<nav>
   <a href="#">Home</a>
-  <a href="#gift-items">Gift Items</a>
-  <a href="#bouquets">Bouquets</a>
-  <a href="#home-decor">Home Decor</a>
+  <a href="#categories">Categories</a>
   <a href="#products">Products</a>
   <a href="#contact">Contact</a>
 </nav>
 
-<section class="zeronia-hero" aria-label="Zeronia store cover">
+<section class="zeronia-hero">
   <img
     src="zeronia-cover1.PNG"
-    alt="ZERONIA Gift & Accessories — Special Gifts, Beautiful Moments"
+    alt="Zeronia Gift & Accessories"
     class="zeronia-cover-image"
   >
   <a href="#products" class="zeronia-shop-button">SHOP NOW →</a>
 </section>
 
-<div class="categories">
-  <a class="category" href="#products">
-    Gifts & Accessories
-    <span>›</span>
-  </a>
-  <a class="category" href="#products">
-    Flower Bouquets
-    <span>›</span>
-  </a>
-  <a class="category" href="#products">
-    Home Decor Items
-    <span>›</span>
-  </a>
-  <a class="category" href="#products">
-    Soft Toys
-    <span>›</span>
-  </a>
-  <a class="category" href="#products">
-    Other Items
-    <span>›</span>
-  </a>
-</div>
+<section class="section" id="categories">
+  <h2 class="heading">SHOP BY CATEGORY</h2>
+
+  <div class="categories">
+    <a class="category" href="#products" data-category="Gifts & Accessories">
+      <span>Gifts & Accessories</span><span>›</span>
+    </a>
+    <a class="category" href="#products" data-category="Flower Bouquets">
+      <span>Flower Bouquets</span><span>›</span>
+    </a>
+    <a class="category" href="#products" data-category="Home Decor Items">
+      <span>Home Decor Items</span><span>›</span>
+    </a>
+    <a class="category" href="#products" data-category="Soft Toys">
+      <span>Soft Toys</span><span>›</span>
+    </a>
+    <a class="category" href="#products" data-category="Other Items">
+      <span>Other Items</span><span>›</span>
+    </a>
+  </div>
+</section>
+
 <section class="section" id="products">
-  <h2 class="heading">FEATURED PRODUCTS</h2>
+  <h2 class="heading" id="products-heading">FEATURED PRODUCTS</h2>
 
   <div class="products" id="product-list">
-    <article class="product" data-default-product="true">
+
+    <article class="product" data-category="Gifts & Accessories">
       <img src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=500&q=80" alt="Beautiful gift">
       <h3>Beautiful Gift</h3>
       <p class="description">A thoughtful gift for a special occasion.</p>
+      <span class="product-category">Gifts & Accessories</span>
       <p class="price">Rs. 2,500</p>
       <button class="cart" onclick="addCart('Beautiful Gift',2500)">🛒 Add to Cart</button>
     </article>
-    <article class="product" data-default-product="true">
+
+    <article class="product" data-category="Flower Bouquets">
       <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=500&q=80" alt="Rose bouquet">
       <h3>Rose Bouquet</h3>
       <p class="description">A beautiful bouquet for someone special.</p>
+      <span class="product-category">Flower Bouquets</span>
       <p class="price">Rs. 3,500</p>
       <button class="cart" onclick="addCart('Rose Bouquet',3500)">🛒 Add to Cart</button>
     </article>
-    <article class="product" data-default-product="true">
+
+    <article class="product" data-category="Home Decor Items">
       <img src="https://images.unsplash.com/photo-1578500494198-246f612d3b3d?auto=format&fit=crop&w=500&q=80" alt="Home decor">
       <h3>Home Decor</h3>
       <p class="description">Decorative item for your home.</p>
+      <span class="product-category">Home Decor Items</span>
       <p class="price">Rs. 1,800</p>
       <button class="cart" onclick="addCart('Home Decor',1800)">🛒 Add to Cart</button>
     </article>
-    <article class="product" data-default-product="true">
+
+    <article class="product" data-category="Gifts & Accessories">
       <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=500&q=80" alt="Premium gift box">
       <h3>Premium Gift Box</h3>
       <p class="description">A premium gift box for celebrations.</p>
+      <span class="product-category">Gifts & Accessories</span>
       <p class="price">Rs. 4,950</p>
       <button class="cart" onclick="addCart('Premium Gift Box',4950)">🛒 Add to Cart</button>
     </article>
+
   </div>
 
   <div class="cart-box" id="cart-items">
@@ -416,21 +471,22 @@ footer strong { color: var(--gold); }
     <p id="total">Cart Total: Rs. 0</p>
   </div>
 
-  <div class="order-form" id="order-form">
+  <div class="order-form">
     <h2>Complete Your Order</h2>
 
     <label for="customer-name">Your Name</label>
-    <input id="customer-name" type="text" placeholder="Enter your full name" autocomplete="name" required>
+    <input id="customer-name" type="text" placeholder="Enter your full name">
 
     <label for="customer-phone">Phone Number</label>
-    <input id="customer-phone" type="tel" placeholder="07XXXXXXXX" autocomplete="tel" required>
+    <input id="customer-phone" type="tel" placeholder="07XXXXXXXX">
 
     <label for="customer-address">Delivery Address</label>
-    <textarea id="customer-address" placeholder="Enter your full delivery address" rows="3" autocomplete="street-address" required></textarea>
+    <textarea id="customer-address" placeholder="Enter your full delivery address" rows="3"></textarea>
 
     <button type="button" class="cart" onclick="sendWhatsAppOrder()">
       Send Order via WhatsApp
     </button>
+
     <button type="button" class="cart" onclick="askWhatsApp()" style="margin-top:10px">
       Ask About Products on WhatsApp
     </button>
@@ -448,24 +504,62 @@ footer strong { color: var(--gold); }
   <p>Gift & Accessories</p>
   <p>Special Gifts • Beautiful Moments</p>
   <p>Nawalapitiya | 070 344 4266</p>
-  <p>©️ 2026 Zeronia Gift & Accessories</p>
+  <p>© 2026 Zeronia Gift & Accessories</p>
 </footer>
 
+<!-- Floating WhatsApp and Cart -->
+<div class="floating-actions">
+  <a
+    class="floating-btn whatsapp-float"
+    href="https://wa.me/94703444266"
+    target="_blank"
+    rel="noopener"
+  >WhatsApp</a>
+
+  <button class="floating-btn cart-float" type="button" onclick="openCart()">
+    🛒 Cart <span class="floating-count" id="floating-cart-count">0</span>
+  </button>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 const SUPABASE_URL = "https://fjyqntkkiyxghvlmdhnm.supabase.co";
 const SUPABASE_KEY = "sb_publishable_5J6jGrNT5RZ1RQEBw883Fw_ehEFqP7H";
+
 const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 let cart = [];
+let activeCategory = "";
 
+/* Category name matching */
+function normalizeCategory(value) {
+  const text = String(value || "").toLowerCase().trim();
+
+  if (text.includes("bouquet") || text.includes("flower")) return "Flower Bouquets";
+  if (text.includes("home") || text.includes("decor")) return "Home Decor Items";
+  if (text.includes("soft") || text.includes("plush") ||
+      text.includes("teddy") || text.includes("toy")) return "Soft Toys";
+  if (text.includes("other")) return "Other Items";
+  if (text.includes("gift") || text.includes("accessor")) return "Gifts & Accessories";
+
+  return value ? String(value).trim() : "Other Items";
+}
+
+/* Cart */
 function addCart(name, price) {
   const existingItem = cart.find(item => item.name === name);
+
   if (existingItem) {
     existingItem.quantity += 1;
   } else {
-    cart.push({ name, price: Number(price), quantity: 1 });
+    cart.push({
+      name:name,
+      price:Number(price),
+      quantity:1
+    });
   }
+
   updateCartDisplay();
 }
 
@@ -477,16 +571,18 @@ function removeCartItem(name) {
 function updateCartDisplay() {
   const cartList = document.getElementById("cart-list");
   const emptyCart = document.getElementById("empty-cart");
-  const count = document.getElementById("count");
   const totalElement = document.getElementById("total");
+  const count = document.getElementById("floating-cart-count");
 
   let total = 0;
   let itemCount = 0;
+
   cartList.replaceChildren();
 
   cart.forEach(item => {
     const quantity = item.quantity || 1;
     const subtotal = Number(item.price) * quantity;
+
     total += subtotal;
     itemCount += quantity;
 
@@ -494,7 +590,8 @@ function updateCartDisplay() {
     row.className = "cart-row";
 
     const details = document.createElement("span");
-    details.textContent = item.name + " × " + quantity +
+    details.textContent =
+      item.name + " × " + quantity +
       " — Rs. " + subtotal.toLocaleString("en-US");
 
     const removeButton = document.createElement("button");
@@ -509,32 +606,127 @@ function updateCartDisplay() {
 
   emptyCart.style.display = cart.length === 0 ? "block" : "none";
   count.textContent = itemCount;
-  totalElement.textContent = "Cart Total: Rs. " + total.toLocaleString("en-US");
+
+  totalElement.textContent =
+    "Cart Total: Rs. " + total.toLocaleString("en-US");
 }
 
-document.getElementById("search").addEventListener("input", function () {
-  const query = this.value.toLowerCase().trim();
-  document.querySelectorAll("#product-list .product").forEach(card => {
-    card.style.display = card.textContent.toLowerCase().includes(query) ? "" : "none";
+function openCart() {
+  document.getElementById("cart-items").scrollIntoView({
+    behavior:"smooth",
+    block:"center"
+  });
+}
+
+/* Search and category filtering */
+function applyProductFilters() {
+  const query = document.getElementById("search").value.toLowerCase().trim();
+  const cards = document.querySelectorAll("#product-list .product");
+
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const cardText = card.textContent.toLowerCase();
+    const category = card.dataset.category || "";
+
+    const matchesSearch =
+      !query ||
+      cardText.includes(query) ||
+      category.toLowerCase().includes(query);
+
+    const matchesCategory =
+      !activeCategory || category === activeCategory;
+
+    const show = matchesSearch && matchesCategory;
+
+    card.style.display = show ? "" : "none";
+
+    if (show) visibleCount++;
+  });
+
+  let emptyMessage = document.getElementById("no-products-message");
+
+  if (!emptyMessage) {
+    emptyMessage = document.createElement("p");
+    emptyMessage.id = "no-products-message";
+    emptyMessage.className = "no-products";
+    document.getElementById("product-list").appendChild(emptyMessage);
+  }
+
+  emptyMessage.style.display = visibleCount === 0 ? "block" : "none";
+  emptyMessage.textContent =
+    "No products found. Please try another search or category.";
+
+  document.querySelectorAll(".category").forEach(link => {
+    link.classList.toggle(
+      "active",
+      link.dataset.category === activeCategory
+    );
+  });
+
+  const heading = document.getElementById("products-heading");
+
+  if (activeCategory) {
+    heading.textContent = activeCategory.toUpperCase();
+  } else if (query) {
+    heading.textContent = "SEARCH RESULTS";
+  } else {
+    heading.textContent = "FEATURED PRODUCTS";
+  }
+}
+
+function searchProducts() {
+  activeCategory = "";
+  applyProductFilters();
+
+  document.getElementById("products").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+document.getElementById("search").addEventListener("input", function() {
+  activeCategory = "";
+  applyProductFilters();
+});
+
+document.getElementById("search").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    searchProducts();
+  }
+});
+
+document.getElementById("search-button").addEventListener("click", searchProducts);
+
+document.querySelectorAll(".category").forEach(link => {
+  link.addEventListener("click", function() {
+    activeCategory = this.dataset.category;
+    document.getElementById("search").value = "";
+    applyProductFilters();
   });
 });
 
+/* Load products from Supabase */
 async function loadZeroniaProducts() {
   const productList = document.getElementById("product-list");
+
   if (!productList) return;
 
-  const { data: savedProducts, error } = await db
+  const { data:savedProducts, error } = await db
     .from("products")
     .select("*")
-    .order("created_at", { ascending: false });
+    .order("created_at", { ascending:false });
 
   if (error) {
     console.error("Product loading error:", error);
+    applyProductFilters();
     return;
   }
 
-  // Keep the sample products visible if the database has no products yet.
-  if (!savedProducts || savedProducts.length === 0) return;
+  /* Keep sample products if database is empty */
+  if (!savedProducts || savedProducts.length === 0) {
+    applyProductFilters();
+    return;
+  }
 
   productList.replaceChildren();
 
@@ -542,10 +734,15 @@ async function loadZeroniaProducts() {
     const card = document.createElement("article");
     card.className = "product";
 
+    card.dataset.category = normalizeCategory(
+      product.category || product.category_name
+    );
+
     const image = document.createElement("img");
     image.src = product.image_url || "";
     image.alt = product.name || "Zeronia product";
     image.loading = "lazy";
+
     image.onerror = () => {
       image.alt = "Product image unavailable";
       image.style.background = "#f4f4f4";
@@ -558,9 +755,14 @@ async function loadZeroniaProducts() {
     description.className = "description";
     description.textContent = product.description || "";
 
+    const category = document.createElement("span");
+    category.className = "product-category";
+    category.textContent = card.dataset.category;
+
     const price = document.createElement("p");
     price.className = "price";
-    price.textContent = "Rs. " + Number(product.price || 0).toLocaleString("en-US");
+    price.textContent =
+      "Rs. " + Number(product.price || 0).toLocaleString("en-US");
 
     const status = document.createElement("p");
     status.textContent = product.status || "Available";
@@ -568,17 +770,38 @@ async function loadZeroniaProducts() {
     const button = document.createElement("button");
     button.className = "cart";
     button.type = "button";
-    button.textContent = product.status === "Out of Stock" ? "Out of Stock" : "🛒 Add to Cart";
+
+    button.textContent =
+      product.status === "Out of Stock"
+      ? "Out of Stock"
+      : "🛒 Add to Cart";
+
     button.disabled = product.status === "Out of Stock";
+
     button.addEventListener("click", () => {
-      addCart(product.name || "Zeronia Product", Number(product.price || 0));
+      addCart(
+        product.name || "Zeronia Product",
+        Number(product.price || 0)
+      );
     });
 
-    card.append(image, name, description, price, status, button);
+    card.append(
+      image,
+      name,
+      description,
+      category,
+      price,
+      status,
+      button
+    );
+
     productList.appendChild(card);
   });
+
+  applyProductFilters();
 }
 
+/* WhatsApp order */
 function sendWhatsAppOrder() {
   const name = document.getElementById("customer-name").value.trim();
   const phone = document.getElementById("customer-phone").value.trim();
@@ -588,14 +811,19 @@ function sendWhatsAppOrder() {
     alert("Please enter your name, phone number, and delivery address.");
     return;
   }
+
   if (cart.length === 0) {
     alert("Please add at least one product to your cart first.");
     return;
   }
 
-  const total = cart.reduce((sum, item) => sum + Number(item.price) * (item.quantity || 1), 0);
+  const total = cart.reduce(
+    (sum, item) => sum + Number(item.price) * (item.quantity || 1),
+    0
+  );
 
   let message = "ZERONIA - NEW ORDER\n\n";
+
   message += "Customer Name: " + name + "\n";
   message += "Phone: " + phone + "\n";
   message += "Delivery Address: " + address + "\n\n";
@@ -604,25 +832,36 @@ function sendWhatsAppOrder() {
   cart.forEach((item, index) => {
     const quantity = item.quantity || 1;
     const subtotal = Number(item.price) * quantity;
-    message += (index + 1) + ". " + item.name + " x " + quantity +
+
+    message +=
+      (index + 1) + ". " + item.name +
+      " x " + quantity +
       " = Rs. " + subtotal.toLocaleString("en-US") + "\n";
   });
 
   message += "\nTotal: Rs. " + total.toLocaleString("en-US");
   message += "\n\nPlease confirm my order.";
 
-  const whatsappURL = "https://wa.me/94703444266?text=" + encodeURIComponent(message);
+  const whatsappURL =
+    "https://wa.me/94703444266?text=" + encodeURIComponent(message);
+
   window.open(whatsappURL, "_blank", "noopener");
 }
 
+/* WhatsApp inquiry */
 function askWhatsApp() {
-  const message = "Hello ZERONIA! I would like to ask for more information about your products.";
-  const whatsappURL = "https://wa.me/94703444266?text=" + encodeURIComponent(message);
+  const message =
+    "Hello ZERONIA! I would like to ask for more information about your products.";
+
+  const whatsappURL =
+    "https://wa.me/94703444266?text=" + encodeURIComponent(message);
+
   window.open(whatsappURL, "_blank", "noopener");
 }
 
 loadZeroniaProducts();
 updateCartDisplay();
 </script>
+
 </body>
 </html>
