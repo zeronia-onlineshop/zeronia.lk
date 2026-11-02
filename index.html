@@ -129,6 +129,7 @@ nav a:hover { color: var(--gold-dark); }
   gap: 8px; 
 }
 .category {
+  border: 1px solid #142B50;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 3px 12px #0001;
@@ -319,15 +320,19 @@ footer strong { color: var(--gold); }
 </div>
 
 
-  <input class="search" id="search" type="search"
-         placeholder="Search for gifts, bouquets, home decor..."
-         aria-label="Search products">
-
-  <button class="cart-summary" type="button"
-          onclick="document.getElementById('cart-items').scrollIntoView({behavior:'smooth'})"
-          aria-label="View shopping cart">
-    🛒 <b id="count">0</b>
+<div class="search-box">
+  <input
+    class="search"
+    id="search"
+    type="search"
+    placeholder="Search products..."
+    aria-label="Search products"
+  >
+  <button type="button" class="search-btn" onclick="searchProducts()">
+    Search
   </button>
+</div>
+
 </header>
 
 <nav aria-label="Main navigation">
