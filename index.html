@@ -403,40 +403,33 @@ footer strong { color:var(--gold); }
 
   <h2 class="heading">SHOP BY CATEGORY</h2>
 
-  <div class="categories">
+ <div class="categories">
 
-    <a class="category active" href="#products" data-category="ALL">
-      <span>ALL ITEMS</span>
-      <span>›</span>
-    </a>
+  <a class="category active" href="#products" data-category="ALL">
+    <span>ALL ITEMS</span><span>›</span>
+  </a>
 
-    <a class="category" href="#products" data-category="Gifts & Accessories">
-      <span>Gifts & Accessories</span>
-      <span>›</span>
-    </a>
+  <a class="category" href="#products" data-category="Gifts & Accessories">
+    <span>Gifts & Accessories</span><span>›</span>
+  </a>
 
-    <a class="category" href="#products" data-category="Flower Bouquets">
-      <span>Flower Bouquets</span>
-      <span>›</span>
-    </a>
+  <a class="category" href="#products" data-category="Flower Bouquets">
+    <span>Flower Bouquets</span><span>›</span>
+  </a>
 
-    <a class="category" href="#products" data-category="Home Decor Items">
-      <span>Home Decor Items</span>
-      <span>›</span>
-    </a>
+  <a class="category" href="#products" data-category="Home Decor Items">
+    <span>Home Decor Items</span><span>›</span>
+  </a>
 
-    <a class="category" href="#products" data-category="Soft Toys">
-      <span>Soft Toys</span>
-      <span>›</span>
-    </a>
+  <a class="category" href="#products" data-category="Soft Toys">
+    <span>Soft Toys</span><span>›</span>
+  </a>
 
-    <a class="category" href="#products" data-category="Other Items">
-      <span>Other Items</span>
-      <span>›</span>
-    </a>
+  <a class="category" href="#products" data-category="Other Items">
+    <span>Other Items</span><span>›</span>
+  </a>
 
-  </div>
-
+</div>
 </section>
 
 <section class="section" id="products">
@@ -548,7 +541,7 @@ const SUPABASE_KEY = "sb_publishable_5J6jGrNT5RZ1RQEBw883Fw_ehEFqP7H";
 const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 let cart = [];
-let activeCategory = "";
+let activeCategory = "ALL";
 
 /* Category name matching */
 function normalizeCategory(value) {
@@ -652,8 +645,10 @@ function applyProductFilters() {
       cardText.includes(query) ||
       category.toLowerCase().includes(query);
 
-    const matchesCategory =
-      !activeCategory || category === activeCategory;
+ const matchesCategory =
+  activeCategory === "ALL" ||
+  !activeCategory ||
+  category === activeCategory;
 
     const show = matchesSearch && matchesCategory;
 
@@ -676,11 +671,12 @@ function applyProductFilters() {
     "No products found. Please try another search or category.";
 
   document.querySelectorAll(".category").forEach(link => {
-    link.classList.toggle(
-      "active",
-      link.dataset.category === activeCategory
-    );
+  link.addEventListener("click", function() {
+    activeCategory = this.dataset.category;
+    document.getElementById("search").value = "";
+    applyProductFilters();
   });
+});
 
   const heading = document.getElementById("products-heading");
 
