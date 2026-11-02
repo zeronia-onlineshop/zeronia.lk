@@ -58,10 +58,12 @@ button{border:0;border-radius:7px;padding:11px 15px;cursor:pointer;font-weight:b
 <input id="name" required placeholder="e.g. Teddy Bear">
 
 <label>Category</label>
-<select id="category">
-<option>Gift Items</option>
-<option>Bouquets</option>
-<option>Home Decor</option>
+<select id="category" required>
+  <option value="Gifts & Accessories">Gifts & Accessories</option>
+  <option value="Flower Bouquets">Flower Bouquets</option>
+  <option value="Home Decor Items">Home Decor Items</option>
+  <option value="Soft Toys">Soft Toys</option>
+  <option value="Other Items">Other Items</option>
 </select>
 
 <label>Product Description</label>
@@ -269,6 +271,37 @@ $("productForm").addEventListener("submit", async function(e) {
   }
 });
 
+  function normalizeAdminCategory(value) {
+  const text = String(value || "").toLowerCase().trim();
+
+  if (text.includes("bouquet") || text.includes("flower")) {
+    return "Flower Bouquets";
+  }
+
+  if (text.includes("home") || text.includes("decor")) {
+    return "Home Decor Items";
+  }
+
+  if (
+    text.includes("soft") ||
+    text.includes("plush") ||
+    text.includes("teddy") ||
+    text.includes("toy")
+  ) {
+    return "Soft Toys";
+  }
+
+  if (text.includes("other")) {
+    return "Other Items";
+  }
+
+  if (text.includes("gift") || text.includes("accessor")) {
+    return "Gifts & Accessories";
+  }
+
+  return "Other Items";
+}
+  
 function editProduct(id) {
   const p = items.find(item => String(item.id) === String(id));
   if (!p) return;
@@ -276,7 +309,7 @@ function editProduct(id) {
   $("productId").value = p.id;
   $("name").value = p.name;
   $("description").value = p.description || "";
-  $("category").value = p.category;
+  $("category").value = normalizeAdminCategory(p.category);
   $("price").value = p.price;
   $("status").value = p.status;
   $("photo").value = "";
@@ -326,7 +359,7 @@ function render() {
     card.appendChild(title);
 
     const category = document.createElement("p");
-    category.textContent = p.category;
+    category.textContent = normalizeAdminCategory(p.category);
     card.appendChild(category);
 
     const price = document.createElement("p");
